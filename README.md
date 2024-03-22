@@ -78,14 +78,17 @@ In this step, we choose the gene name which is picked only once. So here the pre
 **Step 11**- Adding gene putative synonyms (11_Gene-Synonyms.py)
 In this step, if we encounter any gene names other than the best gene name, we include them in the synonym column. It's important to note that while these additional gene names may often serve as synonyms, it's advisable not to rely on them blindly without further verification. Hence, I call them “putative” synonyms.
  
+**Step 12**- Adding the chosen source (12_Choosing-Best-Source.py)
+In this step, we add a new column called Source_Chosen. This column serves the purpose of elucidating the source/sources from which the Best-Gene originates, providing clearly the gene name is from which annotation tool.
+
 **PERFORM ALL THE MANUAL CURATION AND THEN CONTINUE WITH THE NEXT STEPS. **
 
-**Step 12**- Adding ID numbers (12_New-ID-Number.py)
+**Step 13**- Adding ID numbers (12_New-ID-Number.py)
 This step is optional and should be undertaken solely if new ID numbering for the genome is required. The naming convention follows this order:
 SequenceName_Type_5-Digit-Number
 The 5-digit number increments sequentially based on the genome location, starting from 00001. Numbering restarts for each new Sequence_Name or Type, or both, ensuring systematic organisation.
 
-**Step 13**- Make a GFF file for the Excel sheet (13_Excel-to-GFF.py)
+**Step 14**- Make a GFF file for the Excel sheet (13_Excel-to-GFF.py)
 The Excel file can be used to now make the final GFF file. 
 The methodology used here is SKKPipe. You can change the name in Line 10 of the code. 
 The ID is the new IDs generated from Step 12.
