@@ -1546,6 +1546,8 @@ def write_master_table(df: pd.DataFrame, output_folder: str):
         df_out["Pseudogene"] = pseudo_display.map({True: "YES", False: ""})
     df_out["Status"] = df_out["Status"].apply(display_status)
     df_out = df_out.rename(columns=export_column_names)
+    csv_path = os.path.join(output_folder, "Master_Table_Annotation.csv")
+    df_out.to_csv(csv_path, index=False)
     with pd.ExcelWriter(out_path, engine="openpyxl") as writer:
         readme_df.to_excel(writer, sheet_name="README", index=False)
         df_out.to_excel(writer, sheet_name="Master_Table", index=False)
@@ -1590,6 +1592,7 @@ def write_master_table(df: pd.DataFrame, output_folder: str):
     ws.auto_filter.ref = ws.dimensions
     wb.save(out_path)
     logger.info(f"  Master table → {out_path}  ({len(df)} features)")
+    logger.info(f"  Master table CSV → {csv_path}  ({len(df)} features)")
     return out_path
 
 
